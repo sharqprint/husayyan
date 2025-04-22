@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background-color: beige; /* Beige background */
-  background-image: url('222211111'); /* Decorative background image */
+  background-image: url('222211111.jpg'); /* Decorative background image */
   background-size: cover;
   background-position: center;
   color: #333;
@@ -63,7 +63,7 @@ p {
 }
 
 .social-links a i {
-  margin-right: 10px;
+  margin-right: 10px; /* Add space between icons and text */
   font-size: 1.2rem;
 }
 
