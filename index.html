@@ -1,65 +1,111 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>حسيّان لحياةٍ أفضل</title>
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
-  <div class="container">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="Husayyan" alt="Husayyan" onerror="this.style.display='none';">
-    </div>
+  <!-- Header -->
+  <header>
+    <img src="logo.png" alt="شعار حسيّان" class="logo" onerror="this.src='https://via.placeholder.com/260x110?text=Husayyan+Logo';">
+  </header>
 
+  <div class="container">
     <!-- Title -->
     <h1>المركز الطبيّ الشامل للأطراف الإصطناعية و المقوّمات</h1>
-    <p>تابعونا على وسائل التواصل الاجتماعي</p>
 
-    <!-- Social Media Links -->
-    <div class="social-links">
-      <a href="https://whatsapp.com/channel/0029VaN04r796H4YOle6851S" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>واتساب
-      </a>
-      <a href="https://t.me/Husayyan7" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-telegram"></i>تليجرام
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=100076269908295&mibextid=kFxxJD" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-facebook"></i>فيسبوك
-      </a>
-      <a href="https://www.youtube.com/@Husayyan" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-youtube"></i>يوتيوب
-      </a>
-      <a href="https://www.instagram.com/husayyan" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>إنستغرام
-      </a>
+    <!-- About Us -->
+    <section class="about-section fade-in">
+      <p>
+        مرحبًا بكم في المركز الطبي الشامل للأطراف الاصطناعية والمقوّمات، الرائد في مجال صناعة الأطراف والمقوّمات في سوريا. 
+        تأسس مركزنا عام 2009، ونلتزم بتقديم أفضل الحلول الطبية لمساعدتك على استعادة قدرتك على الحركة وتحسين جودة حياتك. 
+        في مركزنا، نقدم مجموعة شاملة من الأطراف الاصطناعية والمقوّمات المُصممة خصيصًا لتلبية احتياجاتك الفردية، مع التركيز على الجودة والدقة في التصنيع والتركيب. 
+        فريقنا من الخبراء المختصين موجود لدعمك في كل خطوة، بدءًا من الاستشارة الأولى وحتى التركيب النهائي.
+        <br><br>
+        نؤمن أن لكل إنسان حق في حياة جديدة، ونسعى جاهدين لتقديم حلول تسهم في تحسين جودة حياتك. 
+        شكرًا لزيارتك موقعنا، ونتطلع إلى خدمتك!
+      </p>
+    </section>
+
+    <!-- YouTube Video -->
+    <div class="video-container fade-in">
+      <iframe 
+        src="https://www.youtube.com/embed/BkWJkvIpIgA" 
+        title="فيديو حسيّان" 
+        frameborder="0" 
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
     </div>
 
-    <!-- Email Link -->
-    <div class="email">
-      يمكنكم أيضًا مراسلتنا عبر البريد الإلكتروني:
-      <br>
-      <a href="mailto:Husayyan7ortho@gmail.com">Husayyan7ortho@gmail.com</a>
-    </div>
+    <!-- Social Media -->
+    <section class="know-us fade-in">
+      <h2>تابعونا على وسائل التواصل</h2>
+      <div class="social-links">
+        <a href="https://whatsapp.com/channel/0029VaN04r796H4YOle6851S" target="_blank" class="social-btn whatsapp">
+          <i class="fab fa-whatsapp"></i> واتساب
+        </a>
+        <a href="https://t.me/Husayyan7" target="_blank" class="social-btn telegram">
+          <i class="fab fa-telegram"></i> تليجرام
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100076269908295&mibextid=kFxxJD" target="_blank" class="social-btn facebook">
+          <i class="fab fa-facebook"></i> فيسبوك 1
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61578326871056" target="_blank" class="social-btn facebook">
+          <i class="fab fa-facebook"></i> فيسبوك 2
+        </a>
+        <a href="https://www.youtube.com/@Husayyan" target="_blank" class="social-btn youtube">
+          <i class="fab fa-youtube"></i> يوتيوب
+        </a>
+        <a href="https://www.instagram.com/husayyan" target="_blank" class="social-btn instagram">
+          <i class="fab fa-instagram"></i> إنستغرام 1
+        </a>
+        <a href="https://www.instagram.com/husayyan2025?igsh=MXM0MDl0bWJkeDhpZA%3D%3D" target="_blank" class="social-btn instagram">
+          <i class="fab fa-instagram"></i> إنستغرام 2
+        </a>
+      </div>
+    </section>
 
-    <!-- Footer Text -->
-    <div class="footer">
-      <span>#Husayyan_For_A_Better_Life</span>
-    </div>
+    <!-- Location -->
+    <section class="location-section fade-in">
+      <h2>عنوان المركز</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d257.5180726038101!2d36.10754464992578!3d32.628604341069185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151bede6cfd722f7%3A0xcfa8bfac840b31dc!2zSjRINStDM1bYjCDYr9ix2LnYp9iMINiz2YjYsdmK2Kc!5e0!3m2!1sar!2s!4v1754500599880!5m2!1sar!2s" 
+          style="border:0;" 
+          allowfullscreen 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
 
-    <!-- Designed By -->
-    <div class="designed-by">
-      <a href="https://www.instagram.com/fateh_moathen?igsh=MTd4emZib3kwdzBhdg==" target="_blank" rel="noopener noreferrer">
-        Designed by Fateh
-      </a>
-    </div>
+    <!-- Footer -->
+    <footer class="fade-in">
+      <div class="address">
+        سوريا - درعا - المحطة - جنوب الكراج الغربي - جانب حلويات آغا
+      </div>
+      <div class="contact-info">
+        <span class="copyable" data-content="0934796337">0934796337</span> |
+        <span class="copyable" data-content="0967294688">0967294688</span> |
+        <span class="copyable" data-content="0981927928">0981927928</span>
+        <br>
+        <span class="copyable email-link" data-content="Husayyan7ortho@gmail.com">Husayyan7ortho@gmail.com</span>
+      </div>
+      <div class="copyright">جميع الحقوق محفوظة &copy; 2025</div>
+      <div class="designed-by">
+        <a href="https://www.instagram.com/fateh_moathen/" target="_blank">تم التصميم بواسطة Fateh Moathen</a>
+      </div>
+    </footer>
+
+    <!-- Copy Notification -->
+    <div class="copy-notification" id="copy-notification">تم النسخ</div>
   </div>
-  <!-- Link to JavaScript -->
+
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
-
