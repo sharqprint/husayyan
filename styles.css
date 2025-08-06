@@ -70,14 +70,14 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
+  height: 140px; /* تم زيادة الارتفاع إلى 140px */
 }
 
 .logo {
-  width: 260px;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(20, 48, 87, 0.4);
-  animation: glow 3s infinite alternate;
+  width: 240px; /* حجم مثالي */
+  height: auto; /* يحافظ على نسبة العرض/الارتفاع */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* ظل بسيط */
 }
 
 @keyframes glow {
@@ -276,3 +276,4 @@ footer {
   pointer-events: none;
   z-index: 1000;
 }
+
