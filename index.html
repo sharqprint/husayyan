@@ -4,24 +4,211 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>حسيّان لحياةٍ أفضل</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary-color: #143057;
+      --secondary-color: #b08b60;
+      --bg-color: #ffffff;
+      --text-dark: #333;
+      --white: #fff;
+      --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a07b50; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.8;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Hospital_Building_%281%29.jpg/1200px-Hospital_Building_%281%29.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-blend-mode: overlay;
+      min-height: 100vh;
+      position: relative;
+      padding-top: 140px;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.94);
+      z-index: -1;
+    }
+
+    header {
+      background: var(--primary-color);
+      padding: 25px 5%;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120px;
+    }
+
+    .logo {
+      width: 260px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(20, 48, 87, 0.4);
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { filter: brightness(1) drop-shadow(0 0 8px rgba(176, 139, 96, 0.4)); }
+      100% { filter: brightness(1.15) drop-shadow(0 0 30px rgba(176, 139, 96, 0.8)); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.9rem;
+      margin: 25px 0 15px;
+      color: var(--primary-color);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about-section {
+      text-align: center;
+      padding: 50px 5%;
+      max-width: 1000px;
+      margin: 50px auto;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(176, 139, 96, 0.25);
+      line-height: 2;
+      font-size: 1.15rem;
+    }
+
+    .video-container, .map-container {
+      margin: 60px auto;
+      max-width: 850px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(176, 139, 96, 0.35);
+    }
+
+    .video-container iframe, .map-container iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+      border-radius: 18px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 28px;
+      border-radius: 55px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      text-decoration: none;
+      min-width: 190px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    .whatsapp { background: #25D366; color: white; }
+    .telegram { background: #0088cc; color: white; }
+    .facebook { background: #1877f2; color: white; }
+    .youtube { background: #ff0000; color: white; }
+    .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px 30px;
+      margin-top: 70px;
+      font-size: 1.1rem;
+    }
+
+    .contact-info span, .email-link {
+      cursor: pointer;
+      color: var(--primary-color);
+      text-decoration: underline;
+      margin: 0 12px;
+    }
+
+    .copy-notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 220px; }
+      body { padding-top: 130px; }
+      .video-container iframe, .map-container iframe { height: 300px; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <img src="logo.png" alt="شعار حسيّان" class="logo" onerror="this.src='https://via.placeholder.com/260x110?text=Husayyan+Logo';">
+    <img src="logo.png" alt="شعار حسيّان" class="logo">
   </header>
 
   <div class="container">
-    <!-- Title -->
     <h1>المركز الطبيّ الشامل للأطراف الإصطناعية و المقوّمات</h1>
 
-    <!-- About Us -->
     <section class="about-section fade-in">
       <p>
         مرحبًا بكم في المركز الطبي الشامل للأطراف الاصطناعية والمقوّمات، الرائد في مجال صناعة الأطراف والمقوّمات في سوريا. 
-        تأسس مركزنا عام 2009، و نحن ملتزمون بتقديم أفضل الحلول الطبية لمساعدتك على استعادة قدرتك على الحركة وتحسين جودة حياتك. 
+        تأسس مركزنا عام 2009، ونلتزم بتقديم أفضل الحلول الطبية لمساعدتك على استعادة قدرتك على الحركة وتحسين جودة حياتك. 
         في مركزنا، نقدم مجموعة شاملة من الأطراف الاصطناعية والمقوّمات المُصممة خصيصًا لتلبية احتياجاتك الفردية، مع التركيز على الجودة والدقة في التصنيع والتركيب. 
         فريقنا من الخبراء المختصين موجود لدعمك في كل خطوة، بدءًا من الاستشارة الأولى وحتى التركيب النهائي.
         <br><br>
@@ -30,7 +217,6 @@
       </p>
     </section>
 
-    <!-- YouTube Video -->
     <div class="video-container fade-in">
       <iframe 
         src="https://www.youtube.com/embed/BkWJkvIpIgA" 
@@ -41,9 +227,8 @@
       </iframe>
     </div>
 
-    <!-- Social Media -->
-    <section class="know-us fade-in">
-      <h2>تابعونا على وسائل التواصل</h2>
+    <section class="fade-in" style="text-align: center; padding: 50px 20px;">
+      <h2 style="color: #143057; margin-bottom: 40px;">تابعونا على وسائل التواصل</h2>
       <div class="social-links">
         <a href="https://whatsapp.com/channel/0029VaN04r796H4YOle6851S" target="_blank" class="social-btn whatsapp">
           <i class="fab fa-whatsapp"></i> واتساب
@@ -51,7 +236,7 @@
         <a href="https://t.me/Husayyan7" target="_blank" class="social-btn telegram">
           <i class="fab fa-telegram"></i> تليجرام
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100076269908295&mibextid=kFxxJD" target="_blank" class="social-btn facebook">
+        <a href="https://www.facebook.com/profile.php?id=100076269908295" target="_blank" class="social-btn facebook">
           <i class="fab fa-facebook"></i> فيسبوك 1
         </a>
         <a href="https://www.facebook.com/profile.php?id=61578326871056" target="_blank" class="social-btn facebook">
@@ -63,50 +248,61 @@
         <a href="https://www.instagram.com/husayyan" target="_blank" class="social-btn instagram">
           <i class="fab fa-instagram"></i> إنستغرام 1
         </a>
-        <a href="https://www.instagram.com/husayyan2025?igsh=MXM0MDl0bWJkeDhpZA%3D%3D" target="_blank" class="social-btn instagram">
+        <a href="https://www.instagram.com/husayyan2025" target="_blank" class="social-btn instagram">
           <i class="fab fa-instagram"></i> إنستغرام 2
         </a>
       </div>
     </section>
 
-    <!-- Location -->
-    <section class="location-section fade-in">
-      <h2>عنوان المركز</h2>
+    <section class="fade-in" style="text-align: center; padding: 50px 20px;">
+      <h2 style="color: #143057; margin-bottom: 40px;">عنوان المركز</h2>
       <div class="map-container">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d257.5180726038101!2d36.10754464992578!3d32.628604341069185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151bede6cfd722f7%3A0xcfa8bfac840b31dc!2zSjRINStDM1bYjCDYr9ix2LnYp9iMINiz2YjYsdmK2Kc!5e0!3m2!1sar!2s!4v1754500599880!5m2!1sar!2s" 
-          style="border:0;" 
-          allowfullscreen 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
+          style="border:0;" allowfullscreen>
         </iframe>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="fade-in">
-      <div class="address">
-        سوريا - درعا - المحطة - جنوب الكراج الغربي - جانب حلويات آغا
+      <div style="font-size: 1.25rem; margin: 20px auto; max-width: 800px;">
+        سوريا - درعا - المختة - جنوب الجراج الغربي - بجانب حلويات آغا
       </div>
-      <div class="contact-info">
+      <div style="margin: 30px 0; font-size: 1.25rem;">
         <span class="copyable" data-content="0934796337">0934796337</span> |
         <span class="copyable" data-content="0967294688">0967294688</span> |
         <span class="copyable" data-content="0981927928">0981927928</span>
         <br>
         <span class="copyable email-link" data-content="Husayyan7ortho@gmail.com">Husayyan7ortho@gmail.com</span>
       </div>
-      <div class="copyright">جميع الحقوق محفوظة &copy; 2025</div>
-      <div class="designed-by">
-        <a href="https://www.instagram.com/fateh_moathen/" target="_blank">تم التصميم بواسطة Fateh Moathen</a>
+      <div style="margin: 25px 0 15px;">جميع الحقوق محفوظة &copy; 2025</div>
+      <div>
+        <a href="https://www.instagram.com/fateh_moathen/" target="_blank">
+          تم التصميم بواسطة Fateh Moathen
+        </a>
       </div>
     </footer>
 
-    <!-- Copy Notification -->
     <div class="copy-notification" id="copy-notification">تم النسخ</div>
   </div>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('.fade-in').forEach(el => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 }).observe(el);
+    });
+
+    document.querySelectorAll('.copyable').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.getAttribute('data-content')).then(() => {
+          document.getElementById('copy-notification').style.opacity = 1;
+          setTimeout(() => document.getElementById('copy-notification').style.opacity = 0, 1500);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-
