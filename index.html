@@ -39,7 +39,7 @@
       background-blend-mode: overlay;
       min-height: 100vh;
       position: relative;
-      padding-top: 140px;
+      padding-top: 120px; /* يتناسب مع ارتفاع الهيدر */
     }
 
     body::before {
@@ -53,10 +53,10 @@
       z-index: -1;
     }
 
+    /* --- الهيدر المعدّل --- */
     header {
       background: var(--primary-color);
-      padding: 25px 5%;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      padding: 20px 5%;
       position: fixed;
       top: 0;
       right: 0;
@@ -65,21 +65,49 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 120px;
+      height: 100px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      overflow: hidden; /* مهم لتأثير اللمعة */
     }
 
+    /* تأثير اللمعة المتحركة على الهيدر فقط (ليس على الشعار) */
+    header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 100%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(35deg);
+      animation: shine 3.5s infinite ease-in-out;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: -100%; }
+    }
+
+    /* --- الشعار بدون توهج، فقط ظل بسيط --- */
     .logo {
-      width: 260px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(20, 48, 87, 0.4);
-      animation: glow 3s infinite alternate;
+      width: 240px;
+      border-radius: 12px;
+      /* تم إزالة أي تأثير توهج أو filter */
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
     }
 
-    @keyframes glow {
-      0% { filter: brightness(1) drop-shadow(0 0 8px rgba(176, 139, 96, 0.4)); }
-      100% { filter: brightness(1.15) drop-shadow(0 0 30px rgba(176, 139, 96, 0.8)); }
+    .logo:hover {
+      transform: scale(1.02); /* تكبير بسيط عند التحويم (اختياري) */
     }
 
+    /* --- باقي التصميم كما هو --- */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -192,16 +220,18 @@
 
     @media (max-width: 768px) {
       .logo { width: 220px; }
-      body { padding-top: 130px; }
+      body { padding-top: 110px; }
       .video-container iframe, .map-container iframe { height: 300px; }
     }
   </style>
 </head>
 <body>
+  <!-- الهيدر -->
   <header>
     <img src="logo.png" alt="شعار حسيّان" class="logo">
   </header>
 
+  <!-- باقي المحتوى كما هو -->
   <div class="container">
     <h1>المركز الطبيّ الشامل للأطراف الإصطناعية و المقوّمات</h1>
 
@@ -258,7 +288,7 @@
       <h2 style="color: #143057; margin-bottom: 40px;">عنوان المركز</h2>
       <div class="map-container">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1188.0483425045197!2d36.10352139790203!3d32.62461620866829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sar!2s!4v1754504192191!5m2!1sar!2s" width="600" height="450" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d257.5180726038101!2d36.10754464992578!3d32.628604341069185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151bede6cfd722f7%3A0xcfa8bfac840b31dc!2zSjRINStDM1bYjCDYr9ix2LnYp9iMINiz2YjYsdmK2Kc!5e0!3m2!1sar!2s!4v1754500599880!5m2!1sar!2s" 
           style="border:0;" allowfullscreen>
         </iframe>
       </div>
@@ -299,12 +329,12 @@
       el.addEventListener('click', () => {
         navigator.clipboard.writeText(el.getAttribute('data-content')).then(() => {
           document.getElementById('copy-notification').style.opacity = 1;
-          setTimeout(() => document.getElementById('copy-notification').style.opacity = 0, 1500);
+          setTimeout(() => {
+            document.getElementById('copy-notification').style.opacity = 0;
+          }, 1500);
         });
       });
     });
   </script>
 </body>
 </html>
-
-
