@@ -13,7 +13,7 @@
       --text-dark: #333;
       --white: #fff;
       --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      --transition: all 0.8s ease;
+      --transition: all 0.4s ease;
     }
 
     * {
@@ -39,7 +39,7 @@
       background-blend-mode: overlay;
       min-height: 100vh;
       position: relative;
-      padding-top: 120px; /* يتناسب مع ارتفاع الهيدر */
+      padding-top: 100px; /* يتناسب مع ارتفاع الهيدر */
     }
 
     body::before {
@@ -53,10 +53,10 @@
       z-index: -1;
     }
 
-    /* --- الهيدر المعدّل --- */
+    /* --- الهيدر (البانر العلوي) --- */
     header {
       background: var(--primary-color);
-      padding: 20px 5%;
+      padding: 15px 5%;
       position: fixed;
       top: 0;
       right: 0;
@@ -65,12 +65,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      overflow: hidden; /* مهم لتأثير اللمعة */
+      height: 90px;
+      overflow: hidden; /* لإخفاء تأثير اللمعة خارج الحدود */
     }
 
-    /* تأثير اللمعة المتحركة على الهيدر فقط (ليس على الشعار) */
+    /* تأثير اللمعة المتحركة على الهيدر فقط */
     header::after {
       content: '';
       position: absolute;
@@ -81,11 +80,12 @@
       background: linear-gradient(
         45deg,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.25) 50%,
         rgba(255, 255, 255, 0) 100%
       );
       transform: rotate(35deg);
       animation: shine 3.5s infinite ease-in-out;
+      pointer-events: none;
     }
 
     @keyframes shine {
@@ -94,17 +94,11 @@
       100% { left: -100%; }
     }
 
-    /* --- الشعار بدون توهج، فقط ظل بسيط --- */
+    /* --- الشعار بدون أي ظل أو حركة أو توهج --- */
     .logo {
-      width: 220px;
+      width: 240px;
       border-radius: 12px;
-      /* تم إزالة أي تأثير توهج أو filter */
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.02); /* تكبير بسيط عند التحويم (اختياري) */
+      /* لا ظل، لا توهج، لا حركة */
     }
 
     /* --- باقي التصميم كما هو --- */
@@ -220,18 +214,18 @@
 
     @media (max-width: 768px) {
       .logo { width: 220px; }
-      body { padding-top: 110px; }
+      body { padding-top: 100px; }
       .video-container iframe, .map-container iframe { height: 300px; }
     }
   </style>
 </head>
 <body>
-  <!-- الهيدر -->
+  <!-- الهيدر مع لمعة متحركة فقط -->
   <header>
     <img src="logo.png" alt="شعار حسيّان" class="logo">
   </header>
 
-  <!-- باقي المحتوى كما هو -->
+  <!-- باقي المحتوى -->
   <div class="container">
     <h1>المركز الطبيّ الشامل للأطراف الإصطناعية و المقوّمات</h1>
 
@@ -288,8 +282,8 @@
       <h2 style="color: #143057; margin-bottom: 40px;">عنوان المركز</h2>
       <div class="map-container">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d257.5180726038101!2d36.10754464992578!3d32.628604341069185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151bede6cfd722f7%3A0xcfa8bfac840b31dc!2zSjRINStDM1bYjCDYr9ix2LnYp9iMINiz2YjYsdmK2Kc!5e0!3m2!1sar!2s!4v1754500599880!5m2!1sar!2s" 
-          style="border:0;" allowfullscreen>
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1188.0483425045197!2d36.10352139790203!3d32.62461620866829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sar!2s!4v1754504192191!5m2!1sar!2s" width="600" height="450"
+               style="border:0;" allowfullscreen>
         </iframe>
       </div>
     </section>
@@ -338,4 +332,3 @@
   </script>
 </body>
 </html>
-
